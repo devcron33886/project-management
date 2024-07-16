@@ -13,8 +13,6 @@ class TaskObserver
     {
         Notification::make()->title('New task')->icon('heroicon-o-adjustments-horizontal')
             ->body("**{$task->title} is assigned to {$task->student->name} successfully.**")
-            ->actions([
-                Action::make('View Task')->url(TaskResource::getUrl('edit', ['record' => $task])),
-            ])->sendToDatabase($task->student);
+            ->sendToDatabase($task->student);
     }
 }
