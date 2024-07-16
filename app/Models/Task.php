@@ -27,4 +27,9 @@ class Task extends Model
     {
         return $this->belongsTo(User::class, 'supervisor_id');
     }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class);
+    }
 }

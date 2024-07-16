@@ -40,6 +40,10 @@ class TaskResource extends Resource
                     ->relationship('supervisor', 'name')
                     ->native(false)
                     ->required(),
+                Forms\Components\Select::make('group_id')
+                    ->relationship('group', 'name')
+                    ->native(false)
+                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\Textarea::make('description')
@@ -66,6 +70,9 @@ class TaskResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('supervisor.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('group.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
